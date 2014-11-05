@@ -65,10 +65,10 @@ end
 
 [gem-image]:   https://badge.fury.io/rb/obfuscatable.svg
 [gem-link]:    http://badge.fury.io/rb/obfuscatable
-[build-image]: https://secure.travis-ci.org/dtaniwaki/obfuscatable.png
+[build-image]: https://travis-ci.org/dtaniwaki/obfuscatable.svg
 [build-link]:  http://travis-ci.org/dtaniwaki/obfuscatable
 [deps-image]:  https://gemnasium.com/dtaniwaki/obfuscatable.png
 [deps-link]:   https://gemnasium.com/dtaniwaki/obfuscatable
-[gpa-image]:   https://codeclimate.com/github/dtaniwaki/obfuscatable.png
+[gpa-image]:   https://codeclimate.com/github/dtaniwaki/obfuscatable/badges/gpa.svg
 [gpa-link]:    https://codeclimate.com/github/dtaniwaki/obfuscatable
 
