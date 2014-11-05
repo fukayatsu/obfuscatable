@@ -1,12 +1,12 @@
-module ObfuscateId
+module Obfuscatable
 
-  def obfuscate_id(options = {})
+  def obfuscatable(options = {})
     require 'scatter_swap'
 
     extend ClassMethods 
     include InstanceMethods
-    cattr_accessor :obfuscate_id_spin
-    self.obfuscate_id_spin = (options[:spin] || obfuscate_id_default_spin)
+    cattr_accessor :obfuscatable_spin
+    self.obfuscatable_spin = (options[:spin] || obfuscatable_default_spin)
   end
 
   def self.hide(id, spin)
@@ -24,9 +24,9 @@ module ObfuscateId
       options = args.slice!(0) || {}
       if has_obfuscated_id? && options[:obfuscated]
         if scope.is_a?(Array)
-          scope.map! {|a| deobfuscate_id(a).to_i}
+          scope.map! {|a| deobfuscatable(a).to_i}
         else
-          scope = deobfuscate_id(scope)
+          scope = deobfuscatable(scope)
         end
       end
       super(scope)
@@ -36,14 +36,14 @@ module ObfuscateId
       true
     end
 
-    def deobfuscate_id(obfuscated_id)
-      ObfuscateId.show(obfuscated_id, self.obfuscate_id_spin)
+    def deobfuscatable(obfuscated_id)
+      Obfuscatable.show(obfuscated_id, self.obfuscatable_spin)
     end
 
     # Generate a default spin from the Model name
-    # This makes it easy to drop obfuscate_id onto any model
+    # This makes it easy to drop obfuscatable onto any model
     # and produce different obfuscated ids for different models
-    def obfuscate_id_default_spin
+    def obfuscatable_default_spin
       alphabet = Array("a".."z") 
       number = name.split("").collect do |char|
         alphabet.index(char)
@@ -55,13 +55,13 @@ module ObfuscateId
 
   module InstanceMethods
     def to_param
-      ObfuscateId.hide(self.id, self.class.obfuscate_id_spin)
+      Obfuscatable.hide(self.id, self.class.obfuscatable_spin)
     end
 
-    def deobfuscate_id(obfuscated_id)
-      self.class.deobfuscate_id(obfuscated_id)
+    def deobfuscatable(obfuscated_id)
+      self.class.deobfuscatable(obfuscated_id)
     end
   end
 end
 
-ActiveRecord::Base.extend ObfuscateId
+ActiveRecord::Base.extend Obfuscatable

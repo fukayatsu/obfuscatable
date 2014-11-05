@@ -1,8 +1,8 @@
 PATH
   remote: .
   specs:
-    obfuscate_id (0.0.4)
-      rails (>= 3.2.15)
+    obfuscatable (0.0.4)
+      rails (>= 3.2)
       scatter_swap (~> 0.0.3)
 
 GEM
@@ -79,7 +79,7 @@ GEM
     mime-types (1.25)
     multi_json (1.8.2)
     nokogiri (1.5.5)
-    polyglot (0.3.3)
+    polyglot (0.3.5)
     pry (0.9.10)
       coderay (~> 1.0.5)
       method_source (~> 0.8)
@@ -145,7 +145,7 @@ GEM
     treetop (1.4.15)
       polyglot
       polyglot (>= 0.3.1)
-    tzinfo (0.3.38)
+    tzinfo (0.3.40)
     xpath (0.1.4)
       nokogiri (~> 1.3)
 
@@ -156,7 +156,7 @@ DEPENDENCIES
   capybara
   guard-rspec
   guard-spork
-  obfuscate_id!
+  obfuscatable!
   rb-inotify
   rspec-rails
   sqlite3

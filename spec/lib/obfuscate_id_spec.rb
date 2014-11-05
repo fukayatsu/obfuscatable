@@ -1,21 +1,21 @@
 require 'spec_helper'
 
 
-describe "#obfuscate_id_spin" do
+describe "#obfuscatable_spin" do
   context "when spin defined" do
     before do
       class User < ActiveRecord::Base
-        obfuscate_id spin: 987654321
+        obfuscatable spin: 987654321
       end
 
       class Post < ActiveRecord::Base
-        obfuscate_id spin: 123456789
+        obfuscatable spin: 123456789
       end
     end
     
     it "reports correct value" do
-      expect(User.obfuscate_id_spin).to eql 987654321
-      expect(Post.obfuscate_id_spin).to eql 123456789
+      expect(User.obfuscatable_spin).to eql 987654321
+      expect(Post.obfuscatable_spin).to eql 123456789
     end
 
     it "uses the spin given" do
@@ -28,16 +28,16 @@ describe "#obfuscate_id_spin" do
   context "when not defined" do
     before do
       class User < ActiveRecord::Base
-        obfuscate_id
+        obfuscatable
       end
 
       class Post < ActiveRecord::Base
-        obfuscate_id
+        obfuscatable
       end
     end
 
     it "reports a unique value computed from model name" do
-      expect(User.obfuscate_id_spin).to_not eql Post.obfuscate_id_spin
+      expect(User.obfuscatable_spin).to_not eql Post.obfuscatable_spin
     end
 
     it "uses computed spin" do
@@ -49,7 +49,7 @@ describe "#obfuscate_id_spin" do
     describe "for model with long name" do
       before do
         class SomeReallyAbsurdlyLongNamedClassThatYouWouldntHaveThoughtOf < ActiveRecord::Base
-          obfuscate_id
+          obfuscatable
         end
       end
         it 'compute default spin correctly' do
@@ -61,16 +61,16 @@ describe "#obfuscate_id_spin" do
   end
 end
 
-describe "#deobfuscate_id" do
+describe "#deobfuscatable" do
   before do
     class User < ActiveRecord::Base
-      obfuscate_id
+      obfuscatable
     end
   end
 
   let (:user) { User.create(id: 1) }
 
-  subject {User.deobfuscate_id(user.to_param).to_i}
+  subject {User.deobfuscatable(user.to_param).to_i}
   it "should reverse the obfuscated id" do
     should eq(user.id)
   end

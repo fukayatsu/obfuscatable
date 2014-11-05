@@ -9,7 +9,7 @@ require "sprockets/railtie"
 # require "rails/test_unit/railtie"
 
 Bundler.require
-require "obfuscate_id"
+require "obfuscatable"
 
 module Dummy
   class Application < Rails::Application

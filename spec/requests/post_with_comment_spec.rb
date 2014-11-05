@@ -1,6 +1,6 @@
 require 'spec_helper'
 
-describe "Models with and without ObfuscateId" do
+describe "Models with and without Obfuscatable" do
   before do
     visit new_post_path
     fill_in "post_content", :with => "First post"
@@ -11,7 +11,7 @@ describe "Models with and without ObfuscateId" do
     click_on "Create Comment"
   end
 
-  describe "Post (using ObfuscateId)" do
+  describe "Post (using Obfuscatable)" do
     it "has plain id attibute" do
       expect(page).to have_content("post.id: 1")
     end
@@ -21,7 +21,7 @@ describe "Models with and without ObfuscateId" do
     end
   end
 
-  describe "Comment (not using ObfuscateId)" do
+  describe "Comment (not using Obfuscatable)" do
     it "has plain id attribute" do
       expect(page).to have_content("comment.id: 1")
     end
