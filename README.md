@@ -1,6 +1,6 @@
 # obfuscatable
 
-[![Build Status](https://secure.travis-ci.org/namick/obfuscatable.png)](http://travis-ci.org/namick/obfuscatable) [![Dependency Status](https://gemnasium.com/namick/obfuscatable.png)](https://gemnasium.com/namick/obfuscatable) [![Code Climate](https://codeclimate.com/github/namick/obfuscatable.png)](https://codeclimate.com/github/namick/obfuscatable)
+[![Build Status](https://secure.travis-ci.org/dtaniwaki/obfuscatable.png)](http://travis-ci.org/dtaniwaki/obfuscatable) [![Dependency Status](https://gemnasium.com/dtaniwaki/obfuscatable.png)](https://gemnasium.com/dtaniwaki/obfuscatable) [![Code Climate](https://codeclimate.com/github/dtaniwaki/obfuscatable.png)](https://codeclimate.com/github/dtaniwaki/obfuscatable)
 
 **Make your ActiveRecord ids non-obvious**
 
