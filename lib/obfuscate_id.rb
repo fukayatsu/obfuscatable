@@ -22,7 +22,7 @@ module ObfuscateId
     def find(*args)
       scope = args.slice!(0)
       options = args.slice!(0) || {}
-      if has_obfuscated_id? && !options[:no_obfuscated_id]
+      if has_obfuscated_id? && options[:obfuscated]
         if scope.is_a?(Array)
           scope.map! {|a| deobfuscate_id(a).to_i}
         else
@@ -56,13 +56,6 @@ module ObfuscateId
   module InstanceMethods
     def to_param
       ObfuscateId.hide(self.id, self.class.obfuscate_id_spin)
-    end
-
-    # As ActiveRecord::Persistence#reload uses self.id
-    # reload without deobfuscating
-    def reload(options = nil)
-      options = (options || {}).merge(:no_obfuscated_id => true)
-      super(options)
     end
 
     def deobfuscate_id(obfuscated_id)
