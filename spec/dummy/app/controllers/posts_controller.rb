@@ -14,6 +14,6 @@ class PostsController < ApplicationController
   end
 
   def show
-    @post = Post.find(params[:id], obfuscated: true)
+    @post = Post.find_obfuscated(params[:id])
   end
 end

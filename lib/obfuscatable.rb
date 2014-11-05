@@ -19,17 +19,17 @@ module Obfuscatable
 
 
   module ClassMethods
-    def find(*args)
+    def find_obfuscated(*args)
       scope = args.slice!(0)
       options = args.slice!(0) || {}
-      if has_obfuscated_id? && options[:obfuscated]
+      if has_obfuscated_id?
         if scope.is_a?(Array)
           scope.map! {|a| deobfuscatable(a).to_i}
         else
           scope = deobfuscatable(scope)
         end
       end
-      super(scope)
+      find(scope)
     end
 
     def has_obfuscated_id?
