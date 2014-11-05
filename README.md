@@ -1,6 +1,9 @@
 # obfuscatable
 
-[![Build Status](https://secure.travis-ci.org/dtaniwaki/obfuscatable.png)](http://travis-ci.org/dtaniwaki/obfuscatable) [![Dependency Status](https://gemnasium.com/dtaniwaki/obfuscatable.png)](https://gemnasium.com/dtaniwaki/obfuscatable) [![Code Climate](https://codeclimate.com/github/dtaniwaki/obfuscatable.png)](https://codeclimate.com/github/dtaniwaki/obfuscatable)
+[![Gem Version][gem-image]][gem-link]
+[![Dependency Status][deps-image]][deps-link]
+[![Build Status][build-image]][build-link]
+[![Code Climate][gpa-image]][gpa-link]
 
 **Make your ActiveRecord ids non-obvious**
 
@@ -56,3 +59,16 @@ class Post < ActiveRecord::Base
   obfuscatable :spin => 89238723
 end
 ```
+
+
+
+
+[gem-image]:   https://badge.fury.io/rb/obfuscatable.svg
+[gem-link]:    http://badge.fury.io/rb/obfuscatable
+[build-image]: https://secure.travis-ci.org/dtaniwaki/obfuscatable.png
+[build-link]:  http://travis-ci.org/dtaniwaki/obfuscatable
+[deps-image]:  https://gemnasium.com/dtaniwaki/obfuscatable.png
+[deps-link]:   https://gemnasium.com/dtaniwaki/obfuscatable
+[gpa-image]:   https://codeclimate.com/github/dtaniwaki/obfuscatable.png
+[gpa-link]:    https://codeclimate.com/github/dtaniwaki/obfuscatable
+
