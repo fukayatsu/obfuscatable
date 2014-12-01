@@ -3,7 +3,7 @@ module Obfuscatable
   def obfuscatable(options = {})
     require 'scatter_swap'
 
-    extend ClassMethods 
+    extend ClassMethods
     include InstanceMethods
     cattr_accessor :obfuscatable_spin
     self.obfuscatable_spin = (options[:spin] || obfuscatable_default_spin)
@@ -26,7 +26,7 @@ module Obfuscatable
         if scope.is_a?(Array)
           scope.map! {|a| deobfuscatable(a).to_i}
         else
-          scope = deobfuscatable(scope)
+          scope = deobfuscatable(scope).to_i
         end
       end
       find(scope)
@@ -44,7 +44,7 @@ module Obfuscatable
     # This makes it easy to drop obfuscatable onto any model
     # and produce different obfuscated ids for different models
     def obfuscatable_default_spin
-      alphabet = Array("a".."z") 
+      alphabet = Array("a".."z")
       number = name.split("").collect do |char|
         alphabet.index(char)
       end
