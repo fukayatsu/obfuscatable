@@ -1,7 +1,7 @@
 PATH
   remote: .
   specs:
-    obfuscatable (0.1.0)
+    obfuscatable (0.1.1)
       rails (>= 3.2)
       scatter_swap (~> 0.0.3)
 
@@ -145,7 +145,7 @@ GEM
     treetop (1.4.15)
       polyglot
       polyglot (>= 0.3.1)
-    tzinfo (0.3.40)
+    tzinfo (0.3.42)
     xpath (0.1.4)
       nokogiri (~> 1.3)
 
