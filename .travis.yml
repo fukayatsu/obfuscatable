@@ -1,5 +1,16 @@
 language: ruby
 rvm:
   - 1.9.3
+  - 2.0
+  - 2.1
+env:
+  - "GEMFILE=Gemfile"
+  - "GEMFILE=Gemfile.rails-4.0.x"
+  - "GEMFILE=Gemfile.rails-4.1.x"
+  - "GEMFILE=Gemfile.rails-master"
 before_script:
+  - export BUNDLE_GEMFILE=$GEMFILE; bundle;
   - cd spec/dummy && bundle exec rake db:test:load && cd -
+matrix:
+  allow_failures:
+    - env: "GEMFILE=Gemfile.rails-master"
