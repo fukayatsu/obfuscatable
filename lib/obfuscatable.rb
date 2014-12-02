@@ -3,7 +3,6 @@ module Obfuscatable
   def obfuscatable(options = {})
     require 'scatter_swap'
 
-    extend ClassMethods
     include InstanceMethods
     cattr_accessor :obfuscatable_spin
     self.obfuscatable_spin = (options[:spin] || obfuscatable_default_spin)
@@ -65,3 +64,5 @@ module Obfuscatable
 end
 
 ActiveRecord::Base.extend Obfuscatable
+ActiveRecord::Base.extend Obfuscatable::ClassMethods
+ActiveRecord::Relation.include Obfuscatable::ClassMethods
